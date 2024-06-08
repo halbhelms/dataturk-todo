@@ -25,8 +25,6 @@
     gap: 0.5rem;
   }
 
-
-
   input[type="checkbox"] {
     width: 1rem;
     height: 1rem;
