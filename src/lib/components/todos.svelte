@@ -1,20 +1,26 @@
 <script lang="ts">
   // import type { Todo } from '$lib/types';
-  import todos from '$lib/seed-todos';
+  import seedTodos from '$lib/seed-todos';
+  let todos = $state(seedTodos);
 
   import Todo from '$lib/components/todo.svelte';
+  import Entry from '$lib/components/entry.svelte';
 
   function complete(id: number) {
-    console.log('changeFunction', id)
     const todo = todos.find(todo => todo.id === id);
     if (todo) {
-      todo.completed = !todo.completed;
+      todo.completed = true;
     }
+  }
+
+  function add(title: string) {
+    const id = todos.length + 1;
+    todos.push({ id, title, completed: false });
   }
 </script>
 
 
-
-{#each todos as todo}
+<Entry {add}></Entry>
+{#each todos as todo (todo.id)}
   <Todo {...todo} {complete}></Todo>
 {/each}

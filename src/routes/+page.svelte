@@ -9,5 +9,6 @@
 <style>
   main {
     width: 20rem;
+    padding: 1rem;
   }
 </style>

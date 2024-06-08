@@ -11,7 +11,7 @@
 
 <main>
   <div class="todo">
-    <input type="checkbox" id="completed_{id}" onchange={() => complete(id)} />
+    <input type="checkbox" id="completed_{id}" oninput={() => complete(id)} bind:checked={completed}/>
     <label for="completed_{id}">{title}</label>
   </div>
 </main>
@@ -22,11 +22,10 @@
     align-items: center;
     padding: 0.5rem;
     border-bottom: 1px solid #ccc;
+    gap: 0.5rem;
   }
 
-  .title {
-    margin-left: 1rem;
-  } 
+
 
   input[type="checkbox"] {
     width: 1rem;
